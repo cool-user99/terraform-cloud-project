@@ -42,3 +42,8 @@ output "asg_name" {
   description = "Nom de l'Auto Scaling Group"
   value       = module.compute.asg_name
 }
+
+output "db_endpoint" {
+  description = "Point d'acces de la base RDS (prive)"
+  value       = module.database.db_endpoint
+}

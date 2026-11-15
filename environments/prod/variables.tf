@@ -106,3 +106,21 @@ variable "certificate_arn" {
   type        = string
   default     = null
 }
+
+variable "db_multi_az" {
+  description = "Base de donnees Multi-AZ (cout double)"
+  type        = bool
+  default     = true
+}
+
+variable "db_skip_final_snapshot" {
+  description = "Ne pas creer de snapshot final a la destruction"
+  type        = bool
+  default     = false
+}
+
+variable "db_use_secrets_manager" {
+  description = "Mot de passe RDS gere par Secrets Manager (false = genere par Terraform)"
+  type        = bool
+  default     = true
+}

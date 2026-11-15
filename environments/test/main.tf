@@ -59,3 +59,15 @@ module "compute" {
   min_size              = var.min_size
   max_size              = var.max_size
 }
+
+module "database" {
+  source = "../../modules/database"
+
+  name_prefix           = local.name_prefix
+  private_db_subnet_ids = module.network.private_db_subnet_ids
+  db_sg_id              = module.security.db_sg_id
+  db_instance_class     = var.db_instance_class
+  multi_az              = var.db_multi_az
+  skip_final_snapshot   = var.db_skip_final_snapshot
+  use_secrets_manager   = var.db_use_secrets_manager
+}
