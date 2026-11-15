@@ -71,3 +71,11 @@ module "database" {
   skip_final_snapshot   = var.db_skip_final_snapshot
   use_secrets_manager   = var.db_use_secrets_manager
 }
+
+module "storage" {
+  source = "../../modules/storage"
+
+  name_prefix   = local.name_prefix
+  create_bucket = var.storage_create_bucket
+  force_destroy = var.storage_force_destroy
+}

@@ -47,3 +47,8 @@ output "db_endpoint" {
   description = "Point d'acces de la base RDS (prive)"
   value       = module.database.db_endpoint
 }
+
+output "assets_bucket_name" {
+  description = "Bucket S3 des ressources et journaux"
+  value       = module.storage.bucket_name
+}

@@ -124,3 +124,16 @@ variable "db_use_secrets_manager" {
   type        = bool
   default     = true
 }
+
+variable "storage_create_bucket" {
+  description = "true : Terraform cree le bucket S3. false : bucket deja cree a la main"
+  type        = bool
+  default     = false
+}
+
+variable "storage_force_destroy" {
+  description = "Autorise la suppression du bucket S3 meme non vide"
+  type        = bool
+  default     = false
+}
+
