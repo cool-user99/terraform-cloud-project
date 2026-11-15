@@ -26,3 +26,12 @@ module "network" {
   enable_nat_gateway = var.enable_nat_gateway
   single_nat_gateway = var.single_nat_gateway
 }
+
+module "security" {
+  source = "../../modules/security"
+
+  name_prefix           = local.name_prefix
+  vpc_id                = module.network.vpc_id
+  create_iam_role       = var.create_iam_role
+  instance_profile_name = var.instance_profile_name
+}

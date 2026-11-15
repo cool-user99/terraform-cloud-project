@@ -88,3 +88,15 @@ variable "single_nat_gateway" {
   type        = bool
   default     = true
 }
+
+variable "create_iam_role" {
+  description = "Cree un role IAM dedie (false sur AWS Academy Learner Lab)"
+  type        = bool
+  default     = false
+}
+
+variable "instance_profile_name" {
+  description = "Profil d'instance existant utilise si create_iam_role = false"
+  type        = string
+  default     = "LabInstanceProfile"
+}
