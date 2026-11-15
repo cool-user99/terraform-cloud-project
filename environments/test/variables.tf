@@ -76,3 +76,15 @@ variable "db_instance_class" {
   type        = string
   default     = "db.t3.micro"
 }
+
+variable "enable_nat_gateway" {
+  description = "Cree une NAT Gateway pour la sortie des sous-reseaux prives"
+  type        = bool
+  default     = true
+}
+
+variable "single_nat_gateway" {
+  description = "Une seule NAT Gateway partagee (economique) au lieu d'une par zone"
+  type        = bool
+  default     = true
+}

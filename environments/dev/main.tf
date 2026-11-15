@@ -8,3 +8,21 @@ locals {
     Owner       = var.owner
   }
 }
+
+data "aws_availability_zones" "available" {
+  state = "available"
+}
+
+locals {
+  azs = slice(data.aws_availability_zones.available.names, 0, 2)
+}
+
+module "network" {
+  source = "../../modules/network"
+
+  name_prefix        = local.name_prefix
+  vpc_cidr           = var.vpc_cidr
+  azs                = local.azs
+  enable_nat_gateway = var.enable_nat_gateway
+  single_nat_gateway = var.single_nat_gateway
+}
