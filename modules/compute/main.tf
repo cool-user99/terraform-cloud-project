@@ -51,7 +51,7 @@ resource "aws_launch_template" "app" {
     ebs {
       volume_size           = 8
       volume_type           = "gp3"
-      encrypted             = true
+      encrypted             = var.encrypt_volumes
       delete_on_termination = true
     }
   }
@@ -114,3 +114,4 @@ resource "aws_autoscaling_policy" "cpu" {
     target_value = var.cpu_target
   }
 }
+

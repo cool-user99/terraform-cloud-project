@@ -77,3 +77,9 @@ variable "cpu_target" {
     error_message = "cpu_target doit etre compris entre 1 et 99."
   }
 }
+
+variable "encrypt_volumes" {
+  description = "Chiffre le volume racine des instances (false si le compte ne donne pas acces a KMS a l'Auto Scaling)"
+  type        = bool
+  default     = true
+}
