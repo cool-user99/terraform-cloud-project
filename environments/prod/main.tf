@@ -35,3 +35,13 @@ module "security" {
   create_iam_role       = var.create_iam_role
   instance_profile_name = var.instance_profile_name
 }
+
+module "load_balancer" {
+  source = "../../modules/load-balancer"
+
+  name_prefix       = local.name_prefix
+  vpc_id            = module.network.vpc_id
+  public_subnet_ids = module.network.public_subnet_ids
+  alb_sg_id         = module.security.alb_sg_id
+  certificate_arn   = var.certificate_arn
+}

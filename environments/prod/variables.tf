@@ -100,3 +100,9 @@ variable "instance_profile_name" {
   type        = string
   default     = "LabInstanceProfile"
 }
+
+variable "certificate_arn" {
+  description = "ARN d'un certificat ACM pour activer HTTPS (null = HTTP uniquement)"
+  type        = string
+  default     = null
+}

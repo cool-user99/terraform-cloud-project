@@ -32,3 +32,8 @@ output "db_sg_id" {
   description = "Security Group de la base de donnees"
   value       = module.security.db_sg_id
 }
+
+output "alb_url" {
+  description = "URL du Load Balancer"
+  value       = "http://${module.load_balancer.alb_dns_name}"
+}
