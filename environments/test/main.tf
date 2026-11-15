@@ -45,3 +45,17 @@ module "load_balancer" {
   alb_sg_id         = module.security.alb_sg_id
   certificate_arn   = var.certificate_arn
 }
+
+module "compute" {
+  source = "../../modules/compute"
+
+  name_prefix           = local.name_prefix
+  tags                  = local.common_tags
+  private_subnet_ids    = module.network.private_app_subnet_ids
+  app_sg_id             = module.security.app_sg_id
+  instance_profile_name = module.security.instance_profile_name
+  target_group_arn      = module.load_balancer.target_group_arn
+  instance_type         = var.instance_type
+  min_size              = var.min_size
+  max_size              = var.max_size
+}

@@ -37,3 +37,8 @@ output "alb_url" {
   description = "URL du Load Balancer"
   value       = "http://${module.load_balancer.alb_dns_name}"
 }
+
+output "asg_name" {
+  description = "Nom de l'Auto Scaling Group"
+  value       = module.compute.asg_name
+}
