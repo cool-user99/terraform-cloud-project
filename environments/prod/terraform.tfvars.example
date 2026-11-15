@@ -1,0 +1,11 @@
+# Copier en terraform.tfvars pour surcharger les valeurs par defaut.
+# Aucune valeur sensible ici : les secrets ne vont jamais dans Git.
+aws_region        = "us-east-1"
+project_name      = "cloud5"
+environment       = "prod"
+owner             = "farouk"
+vpc_cidr          = "10.20.0.0/16"
+instance_type     = "t3.micro"
+min_size          = 2
+max_size          = 6
+db_instance_class = "db.t3.micro"
