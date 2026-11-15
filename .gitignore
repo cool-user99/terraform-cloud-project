@@ -1,0 +1,21 @@
+@'
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+tfplan
+plan.txt
+crash.log
+override.tf
+override.tf.json
+
+# Secrets
+terraform.tfvars
+*.auto.tfvars
+.env
+
+# Windows / IDE
+.vscode/
+Thumbs.db
+'@ | Set-Content -Path .gitignore -Encoding ascii
